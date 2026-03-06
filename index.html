@@ -3,15 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krave Digital — Own Your City</title>
-<meta name="description" content="Krave Digital helps local businesses dominate search results and build powerful online presences. Local SEO & Web Design experts.">
+<title>Krave Growth | Own Your City | Jacksonville, FL</title>
+<meta name="description" content="Krave Growth helps Jacksonville local businesses dominate search results and build powerful websites. Local SEO and Web Design in Jacksonville, FL.">
 <link rel="stylesheet" href="style.css">
 <style>
-/* HOME SPECIFIC */
-#hero {
-  min-height:100vh; display:flex; align-items:center;
-  position:relative; overflow:hidden; padding:0 60px;
-}
+#hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:0 60px; }
 .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(255,107,0,0.08) 0%,transparent 70%),radial-gradient(ellipse 30% 40% at 20% 80%,rgba(255,107,0,0.04) 0%,transparent 60%); }
 .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,107,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,0,0.03) 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%); }
 .hero-ghost { position:absolute; right:-20px; top:50%; transform:translateY(-50%); font-family:'Bebas Neue',sans-serif; font-size:32vw; color:transparent; -webkit-text-stroke:1px rgba(255,107,0,0.05); line-height:1; pointer-events:none; user-select:none; }
@@ -21,14 +17,15 @@
 .hero-eyebrow span { font-size:.75rem; letter-spacing:3px; text-transform:uppercase; color:var(--orange); font-weight:600; }
 .hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,13vw,12rem); line-height:.88; letter-spacing:2px; margin-bottom:32px; opacity:0; animation:fadeUp .8s ease forwards .4s; }
 .hero-title .accent { color:var(--orange); }
-.hero-title .outline { color:transparent; -webkit-text-stroke:2px var(--white); }
 .hero-sub { font-size:1.1rem; font-weight:300; color:var(--gray); line-height:1.7; max-width:480px; margin-bottom:48px; opacity:0; animation:fadeUp .8s ease forwards .6s; }
 .hero-actions { display:flex; gap:20px; align-items:center; opacity:0; animation:fadeUp .8s ease forwards .8s; }
+.hero-location { display:inline-flex; align-items:center; gap:10px; margin-bottom:20px; opacity:0; animation:fadeUp .8s ease forwards .3s; }
+.hero-location-dot { width:8px; height:8px; background:var(--orange); border-radius:50%; }
+.hero-location span { font-size:.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); font-weight:600; }
 .hero-scroll { position:absolute; bottom:40px; left:60px; display:flex; align-items:center; gap:12px; opacity:0; animation:fadeUp .8s ease forwards 1.2s; }
 .hero-scroll-line { width:40px; height:1px; background:var(--gray); }
 .hero-scroll span { font-size:.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--gray); }
 
-/* STATS */
 #stats { background:var(--black-2); padding:60px; border-top:1px solid var(--gray-light); border-bottom:1px solid var(--gray-light); }
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
 .stat-item { padding:40px; text-align:center; border-right:1px solid var(--gray-light); }
@@ -36,7 +33,6 @@
 .stat-num { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--orange); line-height:1; }
 .stat-label { font-size:.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-top:8px; }
 
-/* SERVICES PREVIEW */
 #services-preview { background:var(--black); }
 .services-header { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:70px; align-items:end; }
 .services-intro { font-size:1rem; color:var(--gray); line-height:1.8; font-weight:300; }
@@ -45,14 +41,12 @@
 .service-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
 .service-card:hover::before { transform:scaleX(1); }
 .service-card:hover { background:#1e1e1e; transform:translateY(-4px); }
-.service-num { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(255,107,0,.1); margin-bottom:20px; transition:color .4s; }
+.service-num { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:rgba(255,107,0,.1); margin-bottom:20px; line-height:1; transition:color .4s; }
 .service-card:hover .service-num { color:rgba(255,107,0,.25); }
-.service-icon { font-size:1.6rem; margin-bottom:16px; }
 .service-name { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:1px; margin-bottom:12px; }
 .service-desc { font-size:.88rem; color:var(--gray); line-height:1.7; font-weight:300; }
 .services-more { margin-top:50px; text-align:center; }
 
-/* PROCESS */
 #process { background:var(--black-2); }
 .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:60px; position:relative; }
 .process-steps::before { content:''; position:absolute; top:36px; left:10%; right:10%; height:1px; background:linear-gradient(90deg,transparent,var(--orange),transparent); }
@@ -63,13 +57,19 @@
 .process-title { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; margin-bottom:12px; }
 .process-desc { font-size:.83rem; color:var(--gray); line-height:1.6; font-weight:300; }
 
-/* TESTIMONIALS */
 #testimonials { background:var(--black); }
+.carousel-wrap { position:relative; overflow:hidden; margin-top:60px; }
+.carousel-track { display:flex; transition:transform .6s cubic-bezier(.25,.46,.45,.94); }
+.carousel-slide { min-width:calc(33.333% - 16px); margin-right:24px; flex-shrink:0; }
+.carousel-controls { display:flex; justify-content:center; gap:12px; margin-top:40px; align-items:center; }
+.carousel-btn { width:44px; height:44px; border:1px solid var(--gray-light); background:transparent; color:var(--white); font-size:1rem; cursor:none; transition:all .3s; display:flex; align-items:center; justify-content:center; }
+.carousel-btn:hover { border-color:var(--orange); color:var(--orange); }
+.carousel-dots { display:flex; gap:8px; }
+.carousel-dot { width:6px; height:6px; background:var(--gray-light); border-radius:50%; cursor:none; transition:all .3s; }
+.carousel-dot.active { background:var(--orange); width:20px; border-radius:3px; }
 
-/* WHY US */
 #why { background:var(--black-2); }
 .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-top:60px; }
-.why-visual { position:relative; }
 .why-box { background:var(--black-3); border:1px solid var(--gray-light); padding:60px 48px; position:relative; }
 .why-box::after { content:''; position:absolute; bottom:-16px; right:-16px; width:100%; height:100%; border:1px solid rgba(255,107,0,0.2); z-index:-1; }
 .why-big { font-family:'Bebas Neue',sans-serif; font-size:8rem; color:transparent; -webkit-text-stroke:1px rgba(255,107,0,0.15); line-height:1; margin-bottom:16px; }
@@ -77,7 +77,6 @@
 .why-points { display:flex; flex-direction:column; gap:24px; }
 .why-point { display:flex; gap:20px; align-items:flex-start; padding:24px; background:var(--black-3); border-left:2px solid var(--orange); transition:all .4s; }
 .why-point:hover { background:#1e1e1e; transform:translateX(6px); }
-.why-point-icon { font-size:1.4rem; flex-shrink:0; }
 .why-point-title { font-weight:700; font-size:.9rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
 .why-point-desc { font-size:.85rem; color:var(--gray); font-weight:300; line-height:1.5; }
 
@@ -86,7 +85,6 @@
 @media(max-width:768px){
   #hero{padding:0 24px;}
   .hero-ghost{display:none;}
-  .hero-scroll{left:24px;}
   #stats{padding:40px 24px;}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
   .stat-item{border-bottom:1px solid var(--gray-light);}
@@ -95,43 +93,48 @@
   .process-steps{grid-template-columns:1fr 1fr;}
   .process-steps::before{display:none;}
   .why-grid{grid-template-columns:1fr;}
+  .carousel-slide{min-width:calc(100% - 0px); margin-right:0;}
 }
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
+
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <nav>
   <a href="index.html" class="nav-logo">K<span>R</span>AVE <span style="font-size:1rem;letter-spacing:2px;color:var(--gray)">DIGITAL</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
-<a href="contact.html" class="float-cta">Free Audit →</a>
+<a href="contact.html" class="float-cta">Free Audit</a>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-ghost">K</div>
   <div class="hero-content">
+    <div class="hero-location">
+      <div class="hero-location-dot"></div>
+      <span>Jacksonville, FL</span>
+    </div>
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span>Local SEO & Web Development</span>
+      <span>Local SEO and Web Development</span>
     </div>
     <h1 class="hero-title">
       OWN<br>
       YOUR<br>
       <span class="accent">CITY.</span>
     </h1>
-    <p class="hero-sub">We put local businesses at the top of search results and build the digital presence that turns clicks into customers.</p>
+    <p class="hero-sub">We put Jacksonville businesses at the top of search results and build the websites that turn visitors into customers.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn-primary">Start Dominating</a>
       <a href="services.html" class="btn-ghost">See What We Do</a>
@@ -143,7 +146,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div id="stats">
   <div class="stats-grid">
     <div class="stat-item reveal">
@@ -155,61 +157,54 @@
       <div class="stat-label">Client Retention</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num"><span data-target="3" data-suffix="yrs">0</span></div>
-      <div class="stat-label">Years Operating</div>
+      <div class="stat-num"><span data-target="3" data-suffix=" yrs">0</span></div>
+      <div class="stat-label">Years in Jacksonville</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num">TOP<span data-target="3" data-suffix="">0</span></div>
+      <div class="stat-num">TOP <span data-target="3" data-suffix="">0</span></div>
       <div class="stat-label">Average Ranking Goal</div>
     </div>
   </div>
 </div>
 
-<!-- SERVICES PREVIEW -->
 <section id="services-preview">
   <div class="services-header">
     <div>
       <div class="section-label reveal"><div class="section-label-line"></div><span>What We Do</span></div>
       <h2 class="section-title reveal">SERVICES THAT<br><span style="color:var(--orange)">MOVE</span><br>THE NEEDLE</h2>
     </div>
-    <p class="services-intro reveal">Every service we offer is built around one goal — making sure people in your city find your business first, choose your business first, and come back to your business first.</p>
+    <p class="services-intro reveal">Every service we offer is built around one goal. Making sure people in Jacksonville find your business first, choose your business first, and come back to your business first.</p>
   </div>
   <div class="services-grid reveal">
     <div class="service-card">
       <div class="service-num">01</div>
-      <div class="service-icon">📍</div>
       <div class="service-name">Local SEO</div>
-      <p class="service-desc">Dominate Google Maps and local search. When someone searches your service in your city, you're the first name they see.</p>
+      <p class="service-desc">Dominate Google Maps and local search in Jacksonville. When someone searches your service nearby, you are the first name they see.</p>
     </div>
     <div class="service-card">
       <div class="service-num">02</div>
-      <div class="service-icon">🌐</div>
       <div class="service-name">Web Design</div>
-      <p class="service-desc">Custom websites built to convert. Fast, mobile-first, and designed to make your business look like the obvious choice.</p>
+      <p class="service-desc">Custom websites built to convert. Fast, mobile-first, and designed to make your Jacksonville business look like the obvious choice.</p>
     </div>
     <div class="service-card">
       <div class="service-num">03</div>
-      <div class="service-icon">📈</div>
       <div class="service-name">Google Business</div>
-      <p class="service-desc">Full setup and optimization of your Google Business Profile — the most powerful free tool for local visibility.</p>
+      <p class="service-desc">Full setup and optimization of your Google Business Profile. The most powerful free tool for local visibility in Jacksonville.</p>
     </div>
     <div class="service-card">
       <div class="service-num">04</div>
-      <div class="service-icon">⭐</div>
       <div class="service-name">Reputation Management</div>
       <p class="service-desc">More 5-star reviews, better ratings, stronger trust. We build the online reputation that wins customers on sight.</p>
     </div>
     <div class="service-card">
       <div class="service-num">05</div>
-      <div class="service-icon">🎯</div>
       <div class="service-name">Citation Building</div>
-      <p class="service-desc">Listed and consistent across every major directory. Consistency equals credibility in Google's eyes.</p>
+      <p class="service-desc">Your business listed and consistent across every major directory online. Consistency equals credibility in Google's eyes.</p>
     </div>
     <div class="service-card">
       <div class="service-num">06</div>
-      <div class="service-icon">📊</div>
       <div class="service-name">Monthly Reporting</div>
-      <p class="service-desc">Clear, jargon-free reports every month. You always know exactly where you rank and what we're doing about it.</p>
+      <p class="service-desc">Every month you receive a clear report showing exactly where your business ranks on Google, what improved, and what we are working on next.</p>
     </div>
   </div>
   <div class="services-more reveal">
@@ -217,7 +212,6 @@
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process">
   <div class="section-label reveal"><div class="section-label-line"></div><span>How It Works</span></div>
   <h2 class="section-title reveal">THE <span style="color:var(--orange)">PROCESS</span></h2>
@@ -225,59 +219,110 @@
     <div class="process-step reveal">
       <div class="process-circle"><div class="process-num">01</div></div>
       <div class="process-title">Free Audit</div>
-      <p class="process-desc">We analyze your current online presence, competitors, and biggest opportunities in your market.</p>
+      <p class="process-desc">We analyze your current online presence, your Jacksonville competitors, and your biggest opportunities in the local market.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-circle"><div class="process-num">02</div></div>
       <div class="process-title">Strategy</div>
-      <p class="process-desc">Custom roadmap built specifically for your business, your city, and your industry.</p>
+      <p class="process-desc">A custom roadmap built specifically for your business, your neighborhood, and your industry in Jacksonville.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-circle"><div class="process-num">03</div></div>
       <div class="process-title">Execution</div>
-      <p class="process-desc">We get to work — SEO, website, listings, reviews — everything running simultaneously.</p>
+      <p class="process-desc">We get to work on SEO, your website, your listings, and your reviews. Everything running at the same time.</p>
     </div>
     <div class="process-step reveal">
       <div class="process-circle"><div class="process-num">04</div></div>
       <div class="process-title">Dominate</div>
-      <p class="process-desc">Watch your rankings climb, your phone ring, and your business grow month over month.</p>
+      <p class="process-desc">Watch your rankings climb, your phone ring, and your business grow month over month in the Jacksonville market.</p>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-label reveal"><div class="section-label-line"></div><span>Client Results</span></div>
   <h2 class="section-title reveal">WHAT OUR<br><span style="color:var(--orange)">CLIENTS</span><br>SAY</h2>
-  <div class="testimonials-grid reveal">
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Within 60 days we went from page 4 to the top 3 on Google Maps. My phone hasn't stopped ringing. Best investment I've made for my business."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">M</div>
-        <div><div class="testimonial-name">Marcus T.</div><div class="testimonial-biz">HVAC Company</div></div>
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Within 60 days we went from page 4 to the top 3 on Google Maps. My phone has not stopped ringing. Best investment I have made for my business."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">M</div><div><div class="testimonial-name">Marcus T.</div><div class="testimonial-biz">HVAC Company</div></div></div>
+        </div>
       </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Krave Digital built us a website that actually converts. We're getting 3x the leads we were getting before. Justin knows exactly what he's doing."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">S</div>
-        <div><div class="testimonial-name">Sandra R.</div><div class="testimonial-biz">Roofing Company</div></div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Krave Growth built us a website that actually converts. We are getting 3 times the leads we were before. Justin knows exactly what he is doing."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Sandra R.</div><div class="testimonial-biz">Roofing Company</div></div></div>
+        </div>
       </div>
-    </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"I was invisible online. Now when anyone in the city searches for landscaping, I show up first. The results speak for themselves."</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">D</div>
-        <div><div class="testimonial-name">David K.</div><div class="testimonial-biz">Landscaping Business</div></div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I was invisible online. Now when anyone in Jacksonville searches for landscaping, I show up first. The results speak for themselves."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">D</div><div><div class="testimonial-name">David K.</div><div class="testimonial-biz">Landscaping Business</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Justin is the real deal. He does not overpromise and he delivers exactly what he says he will. In 90 days my business went from nowhere on Google to top 3."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">R</div><div><div class="testimonial-name">Ray M.</div><div class="testimonial-biz">Auto Repair Shop</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Most agencies talk in circles. Justin talks in results. He told me exactly what he would do, did it, and showed me the numbers. Simple as that."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">L</div><div><div class="testimonial-name">Lisa P.</div><div class="testimonial-biz">Hair Salon Owner</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The new website alone tripled our online inquiries. When you add the SEO on top of it we are fully booked two weeks out for the first time ever."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">T</div><div><div class="testimonial-name">Tony G.</div><div class="testimonial-biz">Plumbing Company</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"We had no online presence whatsoever. Krave built us a site and got us ranking in under 60 days. Our Jacksonville customers can finally find us."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">A</div><div><div class="testimonial-name">Andre W.</div><div class="testimonial-biz">Electrical Contractor</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I called three agencies before Krave. All of them talked over my head. Justin explained everything in plain terms and delivered every single thing he promised."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">Patricia M.</div><div class="testimonial-biz">Cleaning Service</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"My restaurant went from barely any online reviews to over 80 five-star reviews in four months. The difference in foot traffic has been unreal."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">C</div><div><div class="testimonial-name">Carlos V.</div><div class="testimonial-biz">Restaurant Owner</div></div></div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Krave Growth is the first agency that actually felt like a partner. Justin checks in regularly, the reports are clear, and the results are real."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar">B</div><div><div class="testimonial-name">Brenda H.</div><div class="testimonial-biz">Dental Practice</div></div></div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn">&#8592;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <button class="carousel-btn" id="nextBtn">&#8594;</button>
+  </div>
 </section>
 
-<!-- WHY KRAVE -->
 <section id="why">
   <div class="why-grid">
     <div class="why-visual reveal-left">
@@ -287,31 +332,27 @@
       </div>
     </div>
     <div class="reveal-right">
-      <div class="section-label"><div class="section-label-line"></div><span>Why Krave Digital</span></div>
-      <h2 class="section-title" style="margin-bottom:36px;">WE'RE NOT<br>AN <span style="color:var(--orange)">AGENCY.</span><br>WE'RE YOUR<br>PARTNER.</h2>
+      <div class="section-label"><div class="section-label-line"></div><span>Why Krave Growth</span></div>
+      <h2 class="section-title" style="margin-bottom:36px;">WE ARE NOT<br>AN <span style="color:var(--orange)">AGENCY.</span><br>WE ARE YOUR<br>PARTNER.</h2>
       <div class="why-points">
         <div class="why-point">
-          <div class="why-point-icon">🎯</div>
-          <div><div class="why-point-title">Hyper Local Focus</div><div class="why-point-desc">We don't try to rank you nationally. We own your city first. Targeted, measurable, real results.</div></div>
+          <div><div class="why-point-title">Jacksonville Focus</div><div class="why-point-desc">We do not try to rank you nationally. We own Jacksonville first. Targeted, measurable, real results for your local market.</div></div>
         </div>
         <div class="why-point">
-          <div class="why-point-icon">📞</div>
-          <div><div class="why-point-title">Direct Access</div><div class="why-point-desc">You work directly with Justin — no account managers, no middlemen, no runaround.</div></div>
+          <div><div class="why-point-title">Direct Access</div><div class="why-point-desc">You work directly with Justin. No account managers, no middlemen, no runaround.</div></div>
         </div>
         <div class="why-point">
-          <div class="why-point-icon">📊</div>
-          <div><div class="why-point-title">Total Transparency</div><div class="why-point-desc">Monthly reports show exactly where you rank, what changed, and what comes next.</div></div>
+          <div><div class="why-point-title">Total Transparency</div><div class="why-point-desc">Monthly reports show exactly where you rank on Google, what changed, and what comes next. No confusion.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BAND -->
 <div class="cta-band reveal">
   <div class="cta-band-text">
-    <h2 class="cta-band-title">READY TO <span>OWN</span><br>YOUR CITY?</h2>
-    <p class="cta-band-sub">Get a free audit of your current online presence. No pitch, no pressure — just real insight into where you stand and how to get ahead.</p>
+    <h2 class="cta-band-title">READY TO <span>OWN</span><br>JACKSONVILLE?</h2>
+    <p class="cta-band-sub">Get a free look at your current online presence. No pitch, no pressure. Just real insight into where you stand and how to get ahead.</p>
   </div>
   <div class="cta-band-action">
     <a href="contact.html" class="btn-primary">Get My Free Audit</a>
@@ -322,7 +363,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-logo">K<span>R</span>AVE DIGITAL</div>
-      <p class="footer-brand-desc">We help local businesses dominate their market online through strategic SEO and powerful web design. Own your city — starting today.</p>
+      <p class="footer-brand-desc">Jacksonville's local SEO and web design agency. We help local businesses dominate their market online and get found by the customers already searching for them.</p>
       <a href="mailto:Justin@Kravegrowth.com" class="footer-brand-email">Justin@Kravegrowth.com</a>
     </div>
     <div>
@@ -330,7 +371,6 @@
       <ul class="footer-col-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
       </ul>
     </div>
     <div>
@@ -353,12 +393,44 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Krave Digital. All rights reserved.</div>
-    <div class="footer-tagline">Krave Digital — <span>Own Your City</span></div>
-    <div class="footer-est">Est. 2022 · kravegrowth.com</div>
+    <div class="footer-copy">2025 Krave Growth. All rights reserved.</div>
+    <div class="footer-tagline">Krave Growth <span>Own Your City</span></div>
+    <div class="footer-est">Est. 2022 Jacksonville, FL</div>
   </div>
 </footer>
 
 <script src="main.js"></script>
+<script>
+// CAROUSEL
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+const total = slides.length;
+const visible = window.innerWidth < 768 ? 1 : 3;
+let current = 0;
+let autoTimer;
+
+// Build dots
+const totalDots = total - visible + 1;
+for(let i = 0; i < totalDots; i++){
+  const dot = document.createElement('div');
+  dot.className = 'carousel-dot' + (i===0?' active':'');
+  dot.addEventListener('click',()=>goTo(i));
+  dotsContainer.appendChild(dot);
+}
+
+function goTo(index){
+  current = Math.max(0, Math.min(index, totalDots-1));
+  const slideWidth = slides[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${current * slideWidth}px)`;
+  dotsContainer.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+}
+
+document.getElementById('prevBtn').addEventListener('click',()=>{ goTo(current-1); resetAuto(); });
+document.getElementById('nextBtn').addEventListener('click',()=>{ goTo(current+1); resetAuto(); });
+
+function resetAuto(){ clearInterval(autoTimer); autoTimer = setInterval(()=>{ goTo(current >= totalDots-1 ? 0 : current+1); },4000); }
+resetAuto();
+</script>
 </body>
 </html>

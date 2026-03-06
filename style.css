@@ -23,8 +23,46 @@ body {
 }
 
 /* ── CURSOR ── */
-.cursor { width:12px; height:12px; background:var(--orange); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .1s ease; }
-.cursor-ring { width:36px; height:36px; border:1px solid var(--orange); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:all .15s ease; opacity:.5; }
+/* CROSSHAIR CURSOR */
+.cursor {
+  width:24px; height:24px;
+  position:fixed; pointer-events:none; z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform .15s ease, opacity .2s ease;
+}
+.cursor::before,
+.cursor::after {
+  content:'';
+  position:absolute;
+  background:var(--orange);
+}
+/* Horizontal line */
+.cursor::before {
+  width:100%; height:1px;
+  top:50%; left:0;
+  transform:translateY(-50%);
+  box-shadow:0 0 6px rgba(255,107,0,0.6);
+}
+/* Vertical line */
+.cursor::after {
+  width:1px; height:100%;
+  left:50%; top:0;
+  transform:translateX(-50%);
+  box-shadow:0 0 6px rgba(255,107,0,0.6);
+}
+/* Center dot */
+.cursor-dot {
+  width:4px; height:4px;
+  background:var(--orange);
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  z-index:10000;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 8px rgba(255,107,0,0.8);
+  transition:transform .1s ease;
+}
+.cursor-ring { display:none; }
 
 /* ── NAV ── */
 nav {

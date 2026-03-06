@@ -1,20 +1,34 @@
-// ── CURSOR ──
+// ── CROSSHAIR CURSOR ──
 const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
+const cursorDot = document.getElementById('cursorDot');
+let mx=0, my=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+  cursorDot.style.left = mx + 'px';
+  cursorDot.style.top = my + 'px';
 });
-function animateRing(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.opacity='1'; });
-  el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.opacity='.5'; });
+
+document.addEventListener('mouseleave', () => {
+  cursor.style.opacity = '0';
+  cursorDot.style.opacity = '0';
+});
+document.addEventListener('mouseenter', () => {
+  cursor.style.opacity = '1';
+  cursorDot.style.opacity = '1';
+});
+
+document.querySelectorAll('a,button,input,select,textarea').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1.6)';
+    cursorDot.style.transform = 'translate(-50%,-50%) scale(2)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    cursorDot.style.transform = 'translate(-50%,-50%) scale(1)';
+  });
 });
 
 // ── NAV SCROLL ──

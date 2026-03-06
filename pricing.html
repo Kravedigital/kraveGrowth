@@ -3,206 +3,397 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — Krave Digital</title>
+<title>Pricing | Krave Growth | Jacksonville, FL</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:70px; }
-.pricing-card { background:var(--black-3); padding:52px 40px; position:relative; border:1px solid var(--gray-light); transition:all .4s; }
-.pricing-card:hover:not(.featured) { border-color:rgba(255,107,0,0.3); transform:translateY(-6px); }
-.pricing-card.featured { border-color:var(--orange); background:linear-gradient(145deg,#181000,#1a1200); transform:scale(1.03); }
-.pricing-card.featured::before { content:'MOST POPULAR'; position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:var(--orange); color:var(--black); font-size:.6rem; font-weight:700; letter-spacing:2px; padding:5px 20px; white-space:nowrap; }
-.pricing-tier { font-size:.7rem; letter-spacing:3px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:20px; }
-.pricing-price { font-family:'Bebas Neue',sans-serif; font-size:5rem; line-height:1; margin-bottom:4px; }
-.pricing-price sup { font-size:2rem; vertical-align:super; }
-.pricing-period { font-size:.8rem; color:var(--gray); margin-bottom:8px; letter-spacing:1px; }
-.pricing-desc { font-size:.85rem; color:var(--gray); font-weight:300; line-height:1.5; margin-bottom:32px; }
-.pricing-divider { height:1px; background:var(--gray-light); margin-bottom:32px; }
-.pricing-features { list-style:none; margin-bottom:40px; }
-.pricing-features li { font-size:.88rem; color:var(--gray); padding:9px 0; display:flex; align-items:center; gap:12px; font-weight:300; border-bottom:1px solid rgba(255,255,255,.04); }
-.pricing-features li:last-child { border-bottom:none; }
-.pricing-features li::before { content:'▸'; color:var(--orange); font-size:.65rem; flex-shrink:0; }
-.pricing-btn { width:100%; padding:16px; background:transparent; border:1px solid var(--orange); color:var(--orange); font-family:'Barlow',sans-serif; font-weight:700; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; cursor:none; transition:all .3s; }
-.pricing-btn:hover,.pricing-card.featured .pricing-btn { background:var(--orange); color:var(--black); }
+.pricing-intro { font-size:1rem; color:var(--gray); line-height:1.8; font-weight:300; max-width:580px; margin-top:16px; }
 
-.pricing-note { text-align:center; margin-top:40px; font-size:.85rem; color:var(--gray); font-weight:300; }
-.pricing-note span { color:var(--orange); }
+/* ONE TIME PACKAGES */
+.packages-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:60px; background:var(--gray-light); border:1px solid var(--gray-light); }
+.pkg-card { background:var(--black-3); padding:52px 44px; position:relative; transition:all .4s; }
+.pkg-card.featured { background:#0d0d00; border-top:3px solid var(--orange); }
+.pkg-card.featured::before { content:'BEST VALUE'; position:absolute; top:-1px; right:24px; background:var(--orange); color:var(--black); font-size:.6rem; font-weight:700; letter-spacing:2px; padding:5px 16px; }
+.pkg-tier { font-size:.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--gray); font-weight:600; margin-bottom:8px; }
+.pkg-name { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:2px; margin-bottom:20px; }
+.pkg-price { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:var(--orange); line-height:1; }
+.pkg-price sup { font-size:2rem; vertical-align:super; }
+.pkg-deposit { font-size:.78rem; color:var(--gray); margin-top:6px; margin-bottom:6px; font-weight:300; }
+.pkg-delivery { display:inline-block; background:var(--gray-light); padding:7px 14px; font-size:.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:28px; }
+.pkg-delivery span { color:var(--orange); font-weight:700; }
+.pkg-divider { height:1px; background:var(--gray-light); margin-bottom:28px; }
+.pkg-desc { font-size:.9rem; color:var(--gray); font-weight:300; line-height:1.6; font-style:italic; margin-bottom:24px; }
+.pkg-features { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:36px; }
+.pkg-features li { font-size:.88rem; color:#ccc; display:flex; align-items:flex-start; gap:10px; line-height:1.4; font-weight:300; }
+.pkg-features li::before { content:'▸'; color:var(--orange); font-size:.7rem; flex-shrink:0; margin-top:2px; }
+.pkg-btn { width:100%; padding:15px; background:transparent; border:1px solid var(--orange); color:var(--orange); font-family:'Barlow',sans-serif; font-weight:700; font-size:.78rem; letter-spacing:2px; text-transform:uppercase; cursor:none; transition:all .3s; }
+.pkg-btn:hover, .pkg-card.featured .pkg-btn { background:var(--orange); color:var(--black); }
 
-.compare { background:var(--black-2); }
-.compare-table { width:100%; border-collapse:collapse; margin-top:60px; }
-.compare-table th { padding:20px 24px; text-align:left; font-size:.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); border-bottom:1px solid var(--gray-light); }
-.compare-table th:not(:first-child) { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; color:var(--white); }
-.compare-table th.featured-col { color:var(--orange); }
-.compare-table td { padding:16px 24px; font-size:.88rem; color:var(--gray); border-bottom:1px solid rgba(255,255,255,.04); font-weight:300; }
-.compare-table td:not(:first-child) { text-align:center; }
-.compare-table tr:hover td { background:rgba(255,255,255,.02); }
-.check { color:var(--orange); font-size:1rem; }
-.cross { color:var(--gray-light); font-size:1rem; }
+/* COMPARISON BAR */
+.compare-section { background:var(--black-2); }
+.compare-bar { background:var(--black-3); border:1px solid var(--gray-light); padding:44px; }
+.compare-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:2px; margin-bottom:32px; }
+.comp-row { display:grid; grid-template-columns:160px 1fr 120px; align-items:center; gap:16px; margin-bottom:16px; }
+.comp-label { font-size:.75rem; font-weight:600; color:#bbb; letter-spacing:1px; text-transform:uppercase; }
+.comp-bar-wrap { height:5px; background:var(--gray-light); overflow:hidden; }
+.comp-bar-fill { height:100%; background:var(--gray); transition:width 1.5s ease; }
+.comp-bar-fill.orange { background:var(--orange); }
+.comp-price { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--gray); }
+.comp-price.highlight { color:var(--orange); }
 
-.faq-section { background:var(--black); }
+/* BUNDLES */
+.bundles-section { background:var(--black); }
+.bundles-intro { font-size:1rem; color:var(--gray); font-weight:300; line-height:1.7; max-width:560px; margin-top:16px; margin-bottom:60px; }
+.bundles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.bundle-card { background:var(--black-3); border:1px solid var(--gray-light); padding:44px 36px; position:relative; transition:all .4s; }
+.bundle-card:hover { border-color:rgba(255,107,0,0.4); transform:translateY(-4px); }
+.bundle-card.featured { border-color:var(--orange); background:linear-gradient(145deg,#111100,#0d0d00); }
+.bundle-badge { position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:var(--orange); color:var(--black); font-size:.6rem; font-weight:700; letter-spacing:2px; padding:5px 20px; white-space:nowrap; }
+.bundle-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:1px; margin-bottom:8px; }
+.bundle-tagline { font-size:.78rem; color:var(--gray); font-weight:300; margin-bottom:24px; }
+.bundle-price-wrap { margin-bottom:8px; }
+.bundle-price { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--orange); line-height:1; }
+.bundle-price sup { font-size:1.6rem; vertical-align:super; }
+.bundle-price-note { font-size:.75rem; color:var(--gray); font-weight:300; margin-bottom:6px; }
+.bundle-savings { display:inline-block; background:rgba(255,107,0,0.12); border:1px solid rgba(255,107,0,0.3); color:var(--orange); font-size:.7rem; font-weight:700; letter-spacing:1px; padding:5px 12px; margin-bottom:24px; }
+.bundle-divider { height:1px; background:var(--gray-light); margin-bottom:24px; }
+.bundle-includes { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+.bundle-includes li { font-size:.85rem; color:#ccc; display:flex; align-items:flex-start; gap:10px; font-weight:300; line-height:1.4; }
+.bundle-includes li::before { content:'▸'; color:var(--orange); font-size:.65rem; flex-shrink:0; margin-top:2px; }
+.bundle-btn { width:100%; padding:14px; background:transparent; border:1px solid var(--orange); color:var(--orange); font-family:'Barlow',sans-serif; font-weight:700; font-size:.75rem; letter-spacing:2px; text-transform:uppercase; cursor:none; transition:all .3s; }
+.bundle-btn:hover, .bundle-card.featured .bundle-btn { background:var(--orange); color:var(--black); }
+
+/* RETAINERS */
+.retainers-section { background:var(--black-2); }
+.retainers-intro { font-size:1rem; color:var(--gray); font-weight:300; line-height:1.7; max-width:560px; margin-top:16px; margin-bottom:60px; }
+.retainers-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; background:var(--gray-light); }
+.retainer-card { background:var(--black-3); padding:48px 40px; }
+.retainer-card.highlight { background:#0a0800; border-left:3px solid var(--orange); }
+.ret-name { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1px; margin-bottom:8px; }
+.ret-tagline { font-size:.8rem; color:var(--gray); font-weight:300; margin-bottom:20px; }
+.ret-price { font-family:'Bebas Neue',sans-serif; font-size:4.5rem; color:var(--orange); line-height:1; }
+.ret-price sup { font-size:1.8rem; vertical-align:super; }
+.ret-period { font-size:.75rem; color:var(--gray); margin-bottom:8px; font-weight:300; }
+.ret-who { font-size:.82rem; color:var(--gray); font-style:italic; font-weight:300; margin-bottom:28px; padding:14px; background:rgba(255,255,255,.03); border-left:2px solid var(--orange); line-height:1.5; }
+.ret-divider { height:1px; background:var(--gray-light); margin-bottom:24px; }
+.ret-features { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+.ret-features li { font-size:.88rem; color:#ccc; display:flex; align-items:flex-start; gap:12px; line-height:1.5; font-weight:300; }
+.ret-features li::before { content:'▸'; color:var(--orange); font-size:.65rem; flex-shrink:0; margin-top:3px; }
+.ret-explain { background:rgba(255,107,0,0.05); border:1px solid rgba(255,107,0,0.15); padding:16px 20px; margin-bottom:28px; }
+.ret-explain-title { font-size:.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:8px; }
+.ret-explain-text { font-size:.82rem; color:var(--gray); font-weight:300; line-height:1.6; }
+.ret-btn { width:100%; padding:14px; background:transparent; border:1px solid var(--orange); color:var(--orange); font-family:'Barlow',sans-serif; font-weight:700; font-size:.75rem; letter-spacing:2px; text-transform:uppercase; cursor:none; transition:all .3s; }
+.ret-btn:hover, .retainer-card.highlight .ret-btn { background:var(--orange); color:var(--black); }
+
+/* ADDONS */
+.addons-section { background:var(--black); }
+.addons-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; background:var(--gray-light); margin-top:60px; }
+.addon-card { background:var(--black-3); padding:32px 28px; transition:all .4s; }
+.addon-card:hover { background:#1e1e1e; }
+.addon-name { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:1px; margin-bottom:8px; }
+.addon-price { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--orange); margin-bottom:10px; }
+.addon-desc { font-size:.82rem; color:var(--gray); font-weight:300; line-height:1.5; }
+
+/* FAQ */
+.faq-section { background:var(--black-2); }
 
 @media(max-width:768px){
-  .pricing-grid{grid-template-columns:1fr;}
-  .pricing-card.featured{transform:scale(1);}
-  .compare-table{font-size:.75rem;}
-  .compare-table th,.compare-table td{padding:12px;}
+  .packages-grid,.retainers-grid{grid-template-columns:1fr;}
+  .bundles-grid{grid-template-columns:1fr;}
+  .addons-grid{grid-template-columns:1fr 1fr;}
+  .comp-row{grid-template-columns:100px 1fr 80px;}
 }
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
+
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 <nav>
   <a href="index.html" class="nav-logo">K<span>R</span>AVE <span style="font-size:1rem;letter-spacing:2px;color:var(--gray)">DIGITAL</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
-<a href="contact.html" class="float-cta">Free Audit →</a>
+<a href="contact.html" class="float-cta">Free Audit</a>
 
 <div class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-grid"></div>
-  <div class="page-hero-ghost">$$$</div>
+  <div class="page-hero-ghost">$</div>
   <div class="page-hero-content">
-    <div class="page-eyebrow"><div class="page-eyebrow-line"></div><span>Investment</span></div>
-    <h1 class="page-title">STRAIGHT<br><span class="accent">FORWARD</span><br>PRICING</h1>
-    <p class="page-sub">No hidden fees. No confusing packages. Just clear investment levels with clear results.</p>
+    <div class="page-eyebrow"><div class="page-eyebrow-line"></div><span>Jacksonville, FL</span></div>
+    <h1 class="page-title">CLEAR<br><span class="accent">PRICING.</span><br>REAL RESULTS.</h1>
+    <p class="page-sub">No hidden fees. No confusing contracts. Just straightforward investment levels built for Jacksonville businesses ready to grow.</p>
   </div>
 </div>
 
+<!-- ONE TIME PACKAGES -->
 <section style="background:var(--black);">
-  <div class="section-label reveal"><div class="section-label-line"></div><span>Choose Your Plan</span></div>
-  <h2 class="section-title reveal">PICK YOUR<br><span style="color:var(--orange)">LEVEL</span></h2>
-  <div class="pricing-grid reveal">
-    <div class="pricing-card">
-      <div class="pricing-tier">Starter</div>
-      <div class="pricing-price"><sup>$</sup>497</div>
-      <div class="pricing-period">per month</div>
-      <p class="pricing-desc">Perfect for businesses just getting started with their online presence.</p>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li>Google Business Optimization</li>
-        <li>Local SEO Foundation Setup</li>
-        <li>Citation Building (20 directories)</li>
-        <li>Monthly Rank Report</li>
-        <li>Review Strategy Guide</li>
-        <li>Email Support</li>
+  <div class="section-label reveal"><div class="section-label-line"></div><span>Website Packages</span></div>
+  <h2 class="section-title reveal">ONE TIME<br><span style="color:var(--orange)">INVESTMENT</span></h2>
+  <p class="pricing-intro reveal">Every site is custom built for your Jacksonville business. No templates. No shortcuts. 50% deposit to begin, remaining balance at launch.</p>
+  <div class="packages-grid reveal">
+    <div class="pkg-card">
+      <div class="pkg-tier">Tier 01</div>
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-price"><sup>$</sup>750</div>
+      <div class="pkg-deposit">One time payment. 50% deposit to begin.</div>
+      <div class="pkg-delivery">Delivery in <span>1 to 2 weeks</span></div>
+      <div class="pkg-divider"></div>
+      <p class="pkg-desc">Perfect for new Jacksonville businesses that need a clean, professional website fast.</p>
+      <ul class="pkg-features">
+        <li>5 to 6 page custom website</li>
+        <li>Mobile responsive on all devices</li>
+        <li>Contact form and Google Maps</li>
+        <li>Basic on-page SEO setup</li>
+        <li>Domain and hosting guidance</li>
+        <li>1 round of revisions</li>
       </ul>
-      <button class="pricing-btn" onclick="window.location='contact.html'">Get Started</button>
+      <button class="pkg-btn" onclick="window.location='contact.html'">Get Started</button>
     </div>
-    <div class="pricing-card featured">
-      <div class="pricing-tier">Growth</div>
-      <div class="pricing-price"><sup>$</sup>997</div>
-      <div class="pricing-period">per month</div>
-      <p class="pricing-desc">The full package for businesses serious about owning their local market.</p>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li>Everything in Starter</li>
-        <li>Custom Website (5 pages)</li>
-        <li>Citation Building (50 directories)</li>
-        <li>Reputation Management</li>
-        <li>Competitor Analysis</li>
-        <li>Bi-weekly Strategy Calls</li>
-        <li>Priority Email & Phone Support</li>
+    <div class="pkg-card featured">
+      <div class="pkg-tier">Tier 02</div>
+      <div class="pkg-name">Core Business</div>
+      <div class="pkg-price"><sup>$</sup>1,999</div>
+      <div class="pkg-deposit">One time payment. 50% deposit to begin.</div>
+      <div class="pkg-delivery">Delivery in <span>2 to 3 weeks</span></div>
+      <div class="pkg-divider"></div>
+      <p class="pkg-desc">For Jacksonville businesses that want a premium site built to rank and convert.</p>
+      <ul class="pkg-features">
+        <li>8 to 12 page custom build</li>
+        <li>Premium design with scroll animations</li>
+        <li>Full local SEO optimization</li>
+        <li>Google Business Profile setup</li>
+        <li>Lead capture and call to action strategy</li>
+        <li>Speed optimization</li>
+        <li>Google Analytics setup</li>
+        <li>2 rounds of revisions</li>
       </ul>
-      <button class="pricing-btn" onclick="window.location='contact.html'">Get Started</button>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-tier">Dominator</div>
-      <div class="pricing-price"><sup>$</sup>1,997</div>
-      <div class="pricing-period">per month</div>
-      <p class="pricing-desc">For businesses that refuse to be anything but #1 in their market.</p>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
-        <li>Everything in Growth</li>
-        <li>Premium Custom Website</li>
-        <li>Full Content Strategy</li>
-        <li>Weekly Reporting</li>
-        <li>Dedicated Account Manager</li>
-        <li>Monthly Strategy Sessions</li>
-        <li>24/7 Priority Support</li>
-      </ul>
-      <button class="pricing-btn" onclick="window.location='contact.html'">Get Started</button>
+      <button class="pkg-btn" onclick="window.location='contact.html'">Get Started</button>
     </div>
   </div>
-  <p class="pricing-note reveal">Not sure which plan? <span>Get a free audit</span> and we'll tell you exactly what you need. <a href="contact.html" style="color:var(--orange);font-weight:600;">Start here →</a></p>
 </section>
 
-<!-- COMPARE TABLE -->
-<section class="compare">
-  <div class="section-label reveal"><div class="section-label-line"></div><span>Compare Plans</span></div>
-  <h2 class="section-title reveal">WHAT'S<br><span style="color:var(--orange)">INCLUDED</span></h2>
-  <table class="compare-table reveal">
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Starter</th>
-        <th class="featured-col">Growth</th>
-        <th>Dominator</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Google Business Optimization</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Local SEO</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Monthly Rank Report</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Citation Building</td><td>20 directories</td><td>50 directories</td><td>50+ directories</td></tr>
-      <tr><td>Custom Website</td><td><span class="cross">—</span></td><td>5 pages</td><td>Premium (unlimited)</td></tr>
-      <tr><td>Reputation Management</td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Competitor Analysis</td><td><span class="cross">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Content Strategy</td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
-      <tr><td>Strategy Calls</td><td><span class="cross">—</span></td><td>Bi-weekly</td><td>Weekly</td></tr>
-      <tr><td>Reporting Frequency</td><td>Monthly</td><td>Monthly</td><td>Weekly</td></tr>
-      <tr><td>Support</td><td>Email</td><td>Email + Phone</td><td>24/7 Priority</td></tr>
-    </tbody>
-  </table>
+<!-- COMPARISON -->
+<section class="compare-section">
+  <div class="section-label reveal"><div class="section-label-line"></div><span>Jacksonville Market</span></div>
+  <h2 class="section-title reveal">HOW KRAVE<br><span style="color:var(--orange)">COMPARES</span></h2>
+  <div class="compare-bar reveal">
+    <div class="compare-title">Average Web Design Pricing in Jacksonville</div>
+    <div class="comp-row">
+      <div class="comp-label">Large Agencies</div>
+      <div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:100%"></div></div>
+      <div class="comp-price">$5,000+</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Mid Agencies</div>
+      <div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:65%"></div></div>
+      <div class="comp-price">$3,000+</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Freelancers</div>
+      <div class="comp-bar-wrap"><div class="comp-bar-fill" style="width:32%"></div></div>
+      <div class="comp-price">$1,200+</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label" style="color:var(--orange)">Krave Growth</div>
+      <div class="comp-bar-wrap"><div class="comp-bar-fill orange" style="width:18%"></div></div>
+      <div class="comp-price highlight">$750 to $1,999</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLES -->
+<section class="bundles-section">
+  <div class="section-label reveal"><div class="section-label-line"></div><span>Bundle Deals</span></div>
+  <h2 class="section-title reveal">SAVE MORE<br><span style="color:var(--orange)">BUNDLE UP</span></h2>
+  <p class="bundles-intro reveal">Combine your website with ongoing monthly services and save. These bundles are built for Jacksonville business owners who want everything handled from day one.</p>
+  <div class="bundles-grid reveal">
+    <div class="bundle-card">
+      <div class="bundle-name">Launch Bundle</div>
+      <div class="bundle-tagline">Get online and stay healthy</div>
+      <div class="bundle-price-wrap">
+        <div class="bundle-price"><sup>$</sup>750</div>
+        <div class="bundle-price-note">one time website</div>
+        <div class="bundle-price" style="font-size:2.5rem;margin-top:4px;">+ <sup style="font-size:1rem">$</sup>100<span style="font-size:1.2rem">/mo</span></div>
+        <div class="bundle-price-note">ongoing maintenance</div>
+      </div>
+      <div class="bundle-savings">Save $50/mo vs buying separately</div>
+      <div class="bundle-divider"></div>
+      <ul class="bundle-includes">
+        <li>Starter website (5 to 6 pages)</li>
+        <li>Monthly security updates and backups</li>
+        <li>Up to 2 content changes per month</li>
+        <li>Monthly uptime monitoring</li>
+        <li>Site stays fast and up to date</li>
+      </ul>
+      <button class="bundle-btn" onclick="window.location='contact.html'">Get This Bundle</button>
+    </div>
+    <div class="bundle-card featured">
+      <div class="bundle-badge">MOST POPULAR</div>
+      <div class="bundle-name">Growth Bundle</div>
+      <div class="bundle-tagline">Get found and keep growing</div>
+      <div class="bundle-price-wrap">
+        <div class="bundle-price"><sup>$</sup>1,999</div>
+        <div class="bundle-price-note">one time website</div>
+        <div class="bundle-price" style="font-size:2.5rem;margin-top:4px;">+ <sup style="font-size:1rem">$</sup>450<span style="font-size:1.2rem">/mo</span></div>
+        <div class="bundle-price-note">SEO Growth plan included</div>
+      </div>
+      <div class="bundle-savings">Save $50/mo vs buying separately</div>
+      <div class="bundle-divider"></div>
+      <ul class="bundle-includes">
+        <li>Core Business website (8 to 12 pages)</li>
+        <li>Monthly local SEO management</li>
+        <li>Google Business Profile management</li>
+        <li>Keyword ranking tracking</li>
+        <li>Monthly performance report</li>
+        <li>Citation building and cleanup</li>
+      </ul>
+      <button class="bundle-btn" onclick="window.location='contact.html'">Get This Bundle</button>
+    </div>
+    <div class="bundle-card">
+      <div class="bundle-name">Dominator Bundle</div>
+      <div class="bundle-tagline">Own Jacksonville completely</div>
+      <div class="bundle-price-wrap">
+        <div class="bundle-price"><sup>$</sup>1,999</div>
+        <div class="bundle-price-note">one time website</div>
+        <div class="bundle-price" style="font-size:2.5rem;margin-top:4px;">+ <sup style="font-size:1rem">$</sup>600<span style="font-size:1.2rem">/mo</span></div>
+        <div class="bundle-price-note">full SEO plus maintenance</div>
+      </div>
+      <div class="bundle-savings">Save $50/mo vs buying separately</div>
+      <div class="bundle-divider"></div>
+      <ul class="bundle-includes">
+        <li>Core Business website (8 to 12 pages)</li>
+        <li>Everything in the Growth Bundle</li>
+        <li>Monthly site maintenance and updates</li>
+        <li>Reputation management</li>
+        <li>Priority support and faster turnaround</li>
+        <li>Bi-weekly check-ins with Justin</li>
+      </ul>
+      <button class="bundle-btn" onclick="window.location='contact.html'">Get This Bundle</button>
+    </div>
+  </div>
+</section>
+
+<!-- RETAINERS -->
+<section class="retainers-section">
+  <div class="section-label reveal"><div class="section-label-line"></div><span>Monthly Retainers</span></div>
+  <h2 class="section-title reveal">KEEP<br><span style="color:var(--orange)">GROWING</span></h2>
+  <p class="retainers-intro reveal">Already have a website or just finished one with us? These monthly plans keep your business moving forward in Jacksonville every single month.</p>
+  <div class="retainers-grid reveal">
+    <div class="retainer-card">
+      <div class="ret-name">Maintenance Plan</div>
+      <div class="ret-tagline">Keep your site healthy and up to date</div>
+      <div class="ret-price"><sup>$</sup>150</div>
+      <div class="ret-period">per month</div>
+      <div class="ret-who">Best for businesses that have a website and want to make sure it stays fast, secure, and working correctly every month.</div>
+      <div class="ret-explain">
+        <div class="ret-explain-title">What this actually means</div>
+        <div class="ret-explain-text">We check your site every month, apply security patches, back everything up, and handle small updates so you never have to worry about your site going down or getting hacked.</div>
+      </div>
+      <div class="ret-divider"></div>
+      <ul class="ret-features">
+        <li>Security updates and monthly backups</li>
+        <li>Up to 2 content change requests per month (text, photos, hours)</li>
+        <li>Monthly uptime monitoring so we catch problems before you do</li>
+        <li>Plugin and platform updates kept current</li>
+      </ul>
+      <button class="ret-btn" onclick="window.location='contact.html'">Get Started</button>
+    </div>
+    <div class="retainer-card highlight">
+      <div class="ret-name">SEO Growth Plan</div>
+      <div class="ret-tagline">Active local SEO every month</div>
+      <div class="ret-price"><sup>$</sup>500</div>
+      <div class="ret-period">per month</div>
+      <div class="ret-who">Best for Jacksonville businesses that want to rank higher on Google over time and get more calls and leads from local searches.</div>
+      <div class="ret-explain">
+        <div class="ret-explain-title">What this actually means</div>
+        <div class="ret-explain-text">Every month we actively work on getting your business higher on Google search and Google Maps. We track your rankings, fix what is holding you back, and send you a clear report showing exactly what moved and why.</div>
+      </div>
+      <div class="ret-divider"></div>
+      <ul class="ret-features">
+        <li>Everything in the Maintenance Plan</li>
+        <li>Monthly ranking report showing exactly where you appear on Google for your key searches</li>
+        <li>Google Business Profile management and weekly posts</li>
+        <li>Citation building so your business info is consistent across the web</li>
+        <li>Keyword tracking so you can see progress month over month</li>
+        <li>One new blog post or landing page per month to strengthen your local presence</li>
+      </ul>
+      <button class="ret-btn" onclick="window.location='contact.html'">Get Started</button>
+    </div>
+  </div>
+</section>
+
+<!-- ADD ONS -->
+<section class="addons-section">
+  <div class="section-label reveal"><div class="section-label-line"></div><span>Add Ons</span></div>
+  <h2 class="section-title reveal">EXTRAS WHEN<br><span style="color:var(--orange)">YOU NEED THEM</span></h2>
+  <div class="addons-grid reveal">
+    <div class="addon-card">
+      <div class="addon-name">Logo Design</div>
+      <div class="addon-price">$350+</div>
+      <div class="addon-desc">Custom brand mark, color palette, and logo file set ready to use anywhere.</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-name">E-Commerce</div>
+      <div class="addon-price">$1,200+</div>
+      <div class="addon-desc">Full online store with product pages, cart, and payment processing built in.</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-name">Booking System</div>
+      <div class="addon-price">$400+</div>
+      <div class="addon-desc">Online appointment scheduling so customers can book directly from your website.</div>
+    </div>
+    <div class="addon-card">
+      <div class="addon-name">Rush Delivery</div>
+      <div class="addon-price">+25%</div>
+      <div class="addon-desc">Need it faster? Rush delivery cuts the standard timeline in half.</div>
+    </div>
+  </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-section">
+<section class="faq-section" style="background:var(--black-2);">
   <div class="section-label reveal"><div class="section-label-line"></div><span>Common Questions</span></div>
   <h2 class="section-title reveal">GOT<br><span style="color:var(--orange)">QUESTIONS?</span></h2>
   <div class="faq-list reveal">
     <div class="faq-item">
       <button class="faq-question">How long before I see results? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Local SEO is a long game but results come faster than most people expect. Most clients see measurable ranking improvements within 30–60 days, with significant results by month 3. We'll always be honest with you about timelines.</p></div>
+      <div class="faq-answer"><p>Most Jacksonville clients see their Google rankings start moving within 30 to 60 days. Significant results typically come by month 3. We will always be straight with you about timelines.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-question">Do I need a website already? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>No. Our Growth and Dominator plans include a custom website build. If you have a website already, we'll audit it and either optimize what you have or recommend a rebuild if it's holding you back.</p></div>
+      <div class="faq-answer"><p>No. Our website packages build you one from scratch. If you already have a site, we will audit it and either optimize what you have or recommend a rebuild if it is hurting more than helping.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-question">Is there a contract? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Starter plans are month-to-month. Growth and Dominator plans have a 3-month minimum commitment — this is because SEO takes time to work and we want to be accountable for real results, not just 30 days.</p></div>
+      <div class="faq-answer"><p>Website builds are a one time project with a 50% deposit upfront and the rest due at launch. Monthly plans are month to month with no long term lock in required.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What makes Krave Digital different from other agencies? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>You work directly with Justin Williams — not an account manager who reports to a manager who reports to someone else. We specialize exclusively in local businesses, which means our strategy is built around what actually works in local search, not generic digital marketing tactics.</p></div>
+      <button class="faq-question">What does the monthly report actually show me? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Every month you get a clear, simple report showing exactly where your business ranks on Google for the searches that matter to you, how many people visited your site, what improved from last month, and what we are working on next. No confusing numbers. No technical speak. Just a straight picture of where you stand.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">What industries do you work with? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Any local service business — roofers, plumbers, HVAC, dentists, restaurants, lawyers, salons, landscapers, gyms, auto repair, and more. If your customers are searching for you locally, we can get you found.</p></div>
+      <button class="faq-question">What Jacksonville industries do you work with? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Any local service business in Jacksonville and Northeast Florida. Roofers, plumbers, HVAC, dentists, restaurants, lawyers, salons, landscapers, gyms, auto repair, and more. If Jacksonville customers are searching for you, we can get you found.</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-question">Can I upgrade my plan later? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Absolutely. Many clients start on Starter to test the waters and upgrade to Growth or Dominator once they see results. We make upgrades seamless with no gap in service.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">Do you offer one-time website builds without SEO? <span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Yes — reach out via the contact page and we can discuss a standalone website project. Pricing depends on scope, complexity, and timeline. We always recommend pairing it with at least a Starter SEO plan so your new site actually gets found.</p></div>
+      <button class="faq-question">Can I start with just a website and add SEO later? <span class="faq-icon">+</span></button>
+      <div class="faq-answer"><p>Absolutely. Many clients start with a website build and then add the SEO Growth Plan once the site is live. We make it easy to get started at whatever level makes sense for your budget right now.</p></div>
     </div>
   </div>
 </section>
 
 <div class="cta-band reveal">
   <div class="cta-band-text">
-    <h2 class="cta-band-title">STILL HAVE<br><span>QUESTIONS?</span></h2>
-    <p class="cta-band-sub">Schedule a free 20-minute call with Justin. No pitch, just answers and an honest assessment of what you need.</p>
+    <h2 class="cta-band-title">NOT SURE<br>WHICH <span>PLAN?</span></h2>
+    <p class="cta-band-sub">Get a free 20-minute call with Justin. He will look at your current online presence and tell you exactly what makes sense for your Jacksonville business and your budget.</p>
   </div>
   <div class="cta-band-action">
     <a href="contact.html" class="btn-primary">Book A Free Call</a>
@@ -213,7 +404,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-logo">K<span>R</span>AVE DIGITAL</div>
-      <p class="footer-brand-desc">We help local businesses dominate their market online through strategic SEO and powerful web design.</p>
+      <p class="footer-brand-desc">Jacksonville's local SEO and web design agency. Affordable, transparent pricing for local businesses ready to grow.</p>
       <a href="mailto:Justin@Kravegrowth.com" class="footer-brand-email">Justin@Kravegrowth.com</a>
     </div>
     <div>
@@ -221,7 +412,6 @@
       <ul class="footer-col-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
       </ul>
     </div>
     <div>
@@ -244,9 +434,9 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 Krave Digital. All rights reserved.</div>
-    <div class="footer-tagline">Krave Digital — <span>Own Your City</span></div>
-    <div class="footer-est">Est. 2022 · kravegrowth.com</div>
+    <div class="footer-copy">2025 Krave Growth. All rights reserved.</div>
+    <div class="footer-tagline">Krave Growth <span>Own Your City</span></div>
+    <div class="footer-est">Est. 2022 Jacksonville, FL</div>
   </div>
 </footer>
 <script src="main.js"></script>
