@@ -22,10 +22,12 @@ document.addEventListener('mouseenter', () => {
 
 document.querySelectorAll('a,button,input,select,textarea').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1.6)';
-    cursorDot.style.transform = 'translate(-50%,-50%) scale(2)';
+    cursor.style.opacity = '0';
+    cursorDot.style.opacity = '0';
   });
   el.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '1';
+    cursorDot.style.opacity = '1';
     cursor.style.transform = 'translate(-50%,-50%) scale(1)';
     cursorDot.style.transform = 'translate(-50%,-50%) scale(1)';
   });
